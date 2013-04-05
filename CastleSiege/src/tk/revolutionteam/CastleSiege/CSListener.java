@@ -1,6 +1,6 @@
-package net.gyroninja.CastleSiege;
+package tk.revolutionteam.CastleSiege;
 
-import net.gyroninja.CastleSiege.tasks.CaptureTask;
+import tk.revolutionteam.CastleSiege.tasks.CaptureTask;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
