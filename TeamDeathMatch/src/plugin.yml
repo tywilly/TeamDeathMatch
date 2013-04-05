@@ -1,0 +1,12 @@
+name: TeamDeathMatch
+main: com.tywilly.teamdeathmatch.TeamDeathMatch
+version: 0.1
+authors:
+- tywilly300
+
+
+commands:
+  teamdeath:
+    usage: /[command]
+    description: Usage for TeamDeathMatch plugin
+    aliases: [tdm, teamdeathmatch, td]
