@@ -2,11 +2,9 @@ package tk.revolutionteam.CastleSiege.tasks;
 
 import tk.revolutionteam.CastleSiege.CapturePoint;
 import tk.revolutionteam.CastleSiege.CastleSiege;
-import tk.revolutionteam.CastleSiege.Util;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.plugin.Plugin;
 
 /**
  *
@@ -22,44 +20,66 @@ public class CaptureTask implements Runnable {
 
 	int timeleft = 400;
 
-	boolean finished;
-
 	public CaptureTask(CastleSiege cs, CapturePoint cp) {
 
 		this.cs = cs;
 
 		this.cp = cp;
 
-		loc = cp.locations.get(13).add(0, 1, 0);
+		loc = cp.center;
 	}
 
 	@Override
 	public void run() {
 
-		if (cs.util.blueNearLocation(loc)) {
+		if (!cp.capped) {
 
-			timeleft--;
+			if (cs.util.blueNearLocation(loc)) {
 
-			if (timeleft == 0) {
+				timeleft--;
 
-				System.out.println(ChatColor.GREEN + "Blue Captured " + cp.name);
+				if (timeleft == 0) {
 
-				finished = true;
+					Bukkit.broadcastMessage(ChatColor.GREEN + "Blue captured " + cp.name);
+
+					cp.busy = false;
+
+					cp.capped = true;
+
+					cs.scoreboard.removeItem(cp.name + " cap time");
+
+					
+					for (int x = -2; x <= 2; x++) {
+
+						for (int z = -2; z <= 2; z++) {
+
+							cp.center.clone().add(x, 0, z).getBlock().setData((byte) 11);
+						}
+					}
+
+					return;
+				}
 			}
-		}
 
-		else {
+			else {
 
-			timeleft += 2;
+				timeleft += 2;
 
-			if (timeleft >= 400) {
+				if (timeleft >= 400) {
 
-				//TODO Fail
+					Bukkit.broadcastMessage(ChatColor.RED + "Blue failed to capture " + cp.name);
 
-				finished = true;
+					cp.busy = false;
+
+					cs.scoreboard.removeItem(cp.name + " cap time");
+
+					return;
+				}
 			}
-		}
 
-		Bukkit.getScheduler().scheduleSyncDelayedTask(cs, this, 1);
+			cs.scoreboard.setItem(cp.name + " cap time", timeleft / 20);
+
+			Bukkit.getScheduler().scheduleSyncDelayedTask(cs, this, 1);
+		}
 	}
 }

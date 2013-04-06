@@ -1,6 +1,6 @@
 package tk.revolutionteam.CastleSiege;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -8,5 +8,5 @@ import java.util.ArrayList;
  */
 public class CapturePoints {
 
-	ArrayList<CapturePoint> capturePoints = new ArrayList<>();
+	HashMap<String, CapturePoint> capturePoints = new HashMap<>();
 }

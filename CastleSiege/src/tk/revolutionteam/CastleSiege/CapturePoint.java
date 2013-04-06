@@ -1,7 +1,8 @@
 package tk.revolutionteam.CastleSiege;
 
-import java.util.ArrayList;
 import org.bukkit.Location;
+import org.bukkit.block.Block;
+import org.bukkit.metadata.FixedMetadataValue;
 
 /**
  *
@@ -9,22 +10,27 @@ import org.bukkit.Location;
  */
 public class CapturePoint {
 
-	public ArrayList<Location> locations = new ArrayList<>();;
+	public String name = "Default Name";
 
-	String name = "Default Name";
+	public boolean busy;
 
-	public CapturePoint(Location loc) {
+	public boolean capped;
+
+	public Location center;
+
+	public CapturePoint(CastleSiege cs, Location loc, String name) {
+
+		center = loc;
 
 		for (int x = loc.getBlockX() - 2; x <= loc.getBlockX() + 2; x++) {
 
-			for (int z = loc.getBlockZ() - 2; x <= loc.getBlockZ() + 2; x++) {
+			for (int z = loc.getBlockZ() - 2; z <= loc.getBlockZ() + 2; z++) {
 
-				locations.add(loc.add(x, 0, z));
+				Block b = new Location(loc.getWorld(), x, loc.getBlockY(), z).getBlock();
+
+				b.setMetadata("cp", new FixedMetadataValue(cs, name));
 			}
 		}
-	}
-
-	public void setName(String name) {
 
 		this.name = name;
 	}
