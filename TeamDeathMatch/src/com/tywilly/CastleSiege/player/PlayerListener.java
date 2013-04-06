@@ -13,9 +13,9 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import com.tywilly.CastleSiege.objective.Objective;
 import com.tywilly.CastleSiege.objective.ObjectiveManager;
 import com.tywilly.CastleSiege.objective.flag.Flag;
-import com.tywilly.CatsleSiege.team.BlueTeam;
-import com.tywilly.CatsleSiege.team.NeutralTeam;
-import com.tywilly.CatsleSiege.team.RedTeam;
+import com.tywilly.CastleSiege.team.BlueTeam;
+import com.tywilly.CastleSiege.team.NeutralTeam;
+import com.tywilly.CastleSiege.team.RedTeam;
 
 public class PlayerListener implements Listener{
 

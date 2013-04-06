@@ -2,7 +2,7 @@ package com.tywilly.CastleSiege.player;
 
 import org.bukkit.entity.Player;
 
-import com.tywilly.CatsleSiege.team.Team;
+import com.tywilly.CastleSiege.team.Team;
 
 public class TeamPlayer{
 

@@ -9,10 +9,10 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
 import com.tywilly.CastleSiege.player.PlayerManager;
-import com.tywilly.CatsleSiege.team.BlueTeam;
-import com.tywilly.CatsleSiege.team.NeutralTeam;
-import com.tywilly.CatsleSiege.team.RedTeam;
-import com.tywilly.CatsleSiege.team.Team;
+import com.tywilly.CastleSiege.team.BlueTeam;
+import com.tywilly.CastleSiege.team.NeutralTeam;
+import com.tywilly.CastleSiege.team.RedTeam;
+import com.tywilly.CastleSiege.team.Team;
 
 public class Objective {
 
