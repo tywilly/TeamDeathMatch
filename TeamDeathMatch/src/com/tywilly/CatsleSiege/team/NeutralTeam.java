@@ -1,4 +1,4 @@
-package com.tywilly.teamdeathmatch.team;
+package com.tywilly.CatsleSiege.team;
 
 public class NeutralTeam extends Team{
 

@@ -1,4 +1,4 @@
-package com.tywilly.teamdeathmatch.team;
+package com.tywilly.CatsleSiege.team;
 
 import org.bukkit.ChatColor;
 

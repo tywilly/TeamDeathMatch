@@ -1,10 +1,9 @@
-package com.tywilly.teamdeathmatch.player;
+package com.tywilly.CastleSiege.player;
 
 import java.util.ArrayList;
 
 public class PlayerManager {
-
-	private static PlayerManager instance;
+	
 	private ArrayList<TeamPlayer> playerList = new ArrayList<TeamPlayer>();
 	
 	public void addPlayer(TeamPlayer player){
@@ -28,16 +27,6 @@ public class PlayerManager {
 		}
 		
 		return null;
-		
-	}
-	
-	public static PlayerManager getInstance(){
-		
-		if(instance == null){
-			instance = new PlayerManager();
-		}
-		
-		return instance;
 		
 	}
 	

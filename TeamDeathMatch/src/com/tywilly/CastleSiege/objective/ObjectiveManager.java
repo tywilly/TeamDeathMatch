@@ -1,11 +1,10 @@
-package com.tywilly.teamdeathmatch.objective;
+package com.tywilly.CastleSiege.objective;
 
 import java.util.ArrayList;
 
 public class ObjectiveManager {
 
 	
-	private static ObjectiveManager instance;
 	private ArrayList<Objective> ObjectivesList = new ArrayList<Objective>();
 	
 	public ArrayList<Objective> getObjectivesList(){
@@ -22,15 +21,6 @@ public class ObjectiveManager {
 			ObjectivesList.remove(obj);
 		}
 		
-	}
-	
-	public static ObjectiveManager getInstance(){
-		
-		if(instance == null){
-			instance = new ObjectiveManager();
-		}
-		
-		return instance;
 	}
 	
 }

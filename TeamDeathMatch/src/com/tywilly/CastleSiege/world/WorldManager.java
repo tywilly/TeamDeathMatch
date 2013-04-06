@@ -1,12 +1,9 @@
-package com.tywilly.teamdeathmatch.world;
+package com.tywilly.CastleSiege.world;
 
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 
 public class WorldManager {
-
-	private static WorldManager instance;
-	
 	
 	public void setWorld(World oldWorld ,World newWorld){
 		for(World world : Bukkit.getWorlds()){
@@ -20,19 +17,5 @@ public class WorldManager {
 			}
 		}
 	}
-	
-	
-	
-	
-	public static WorldManager getInstance(){
-		
-		if(instance == null){
-			instance = new WorldManager();
-		}
-		
-		return instance;
-		
-	}
-	
 }
 

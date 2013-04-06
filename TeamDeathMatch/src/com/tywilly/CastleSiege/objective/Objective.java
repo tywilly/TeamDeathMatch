@@ -1,4 +1,4 @@
-package com.tywilly.teamdeathmatch.objective;
+package com.tywilly.CastleSiege.objective;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -8,11 +8,11 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
-import com.tywilly.teamdeathmatch.player.PlayerManager;
-import com.tywilly.teamdeathmatch.team.BlueTeam;
-import com.tywilly.teamdeathmatch.team.NeutralTeam;
-import com.tywilly.teamdeathmatch.team.RedTeam;
-import com.tywilly.teamdeathmatch.team.Team;
+import com.tywilly.CastleSiege.player.PlayerManager;
+import com.tywilly.CatsleSiege.team.BlueTeam;
+import com.tywilly.CatsleSiege.team.NeutralTeam;
+import com.tywilly.CatsleSiege.team.RedTeam;
+import com.tywilly.CatsleSiege.team.Team;
 
 public class Objective {
 
@@ -50,7 +50,7 @@ public class Objective {
 			@Override
 			public void run() {
 				
-				setTeamBlock(PlayerManager.getInstance().getPlayer(player.getName()).getTeam());
+				setTeamBlock(new PlayerManager().getPlayer(player.getName()).getTeam());
 				player.sendMessage("Captured!");
 				captured = false;
 				

@@ -1,10 +1,11 @@
-package com.tywilly.teamdeathmatch.team;
+package com.tywilly.CatsleSiege.team;
 
 import java.util.ArrayList;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import com.tywilly.teamdeathmatch.player.TeamPlayer;
+
+import com.tywilly.CastleSiege.player.TeamPlayer;
 
 public class Team {
 

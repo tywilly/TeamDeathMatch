@@ -1,4 +1,4 @@
-package com.tywilly.teamdeathmatch.player;
+package com.tywilly.CastleSiege.player;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,12 +10,12 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
-import com.tywilly.teamdeathmatch.objective.Objective;
-import com.tywilly.teamdeathmatch.objective.ObjectiveManager;
-import com.tywilly.teamdeathmatch.objective.flag.Flag;
-import com.tywilly.teamdeathmatch.team.BlueTeam;
-import com.tywilly.teamdeathmatch.team.NeutralTeam;
-import com.tywilly.teamdeathmatch.team.RedTeam;
+import com.tywilly.CastleSiege.objective.Objective;
+import com.tywilly.CastleSiege.objective.ObjectiveManager;
+import com.tywilly.CastleSiege.objective.flag.Flag;
+import com.tywilly.CatsleSiege.team.BlueTeam;
+import com.tywilly.CatsleSiege.team.NeutralTeam;
+import com.tywilly.CatsleSiege.team.RedTeam;
 
 public class PlayerListener implements Listener{
 
@@ -24,11 +24,11 @@ public class PlayerListener implements Listener{
 		//The statement to balance teams.
 		if(BlueTeam.getInstance().getNumPlayers() > RedTeam.getInstance().getNumPlayers()){
 			
-			PlayerManager.getInstance().addPlayer(new TeamPlayer(event.getPlayer(), RedTeam.getInstance()));
+			new PlayerManager().addPlayer(new TeamPlayer(event.getPlayer(), RedTeam.getInstance()));
 			
 		}else if(BlueTeam.getInstance().getNumPlayers() <= RedTeam.getInstance().getNumPlayers()){
 			
-			PlayerManager.getInstance().addPlayer(new TeamPlayer(event.getPlayer(), BlueTeam.getInstance()));
+			new PlayerManager().addPlayer(new TeamPlayer(event.getPlayer(), BlueTeam.getInstance()));
 			
 		}
 		
@@ -37,7 +37,7 @@ public class PlayerListener implements Listener{
 		flag.setLocation(event.getPlayer().getLocation());
 		flag.setTeamBlock(NeutralTeam.getInstance());
 		
-		ObjectiveManager.getInstance().addFlag(flag);
+		new ObjectiveManager().addFlag(flag);
 	}
 	
 	@EventHandler
@@ -58,15 +58,15 @@ public class PlayerListener implements Listener{
 	public void onPlayerSpawn(PlayerRespawnEvent event){
 		Player player = event.getPlayer();
 		
-		player.teleport(PlayerManager.getInstance().getPlayer(player.getName()).getTeam().getSpawnLoc());
+		player.teleport(new PlayerManager().getPlayer(player.getName()).getTeam().getSpawnLoc());
 		
 	}
 	
 	@EventHandler
 	public void onPlayerMove(final PlayerMoveEvent event){
 		
-		for(final Objective flag : ObjectiveManager.getInstance().getObjectivesList()){
-			if(flag.inRadiusOf(event.getPlayer(), 5) && !flag.isBeingCaptured() && !flag.isTeams(PlayerManager.getInstance().getPlayer(event.getPlayer().getName()).getTeam())){
+		for(final Objective flag : new ObjectiveManager().getObjectivesList()){
+			if(flag.inRadiusOf(event.getPlayer(), 5) && !flag.isBeingCaptured() && !flag.isTeams(new PlayerManager().getPlayer(event.getPlayer().getName()).getTeam())){
 				
 				flag.capture(event.getPlayer());
 				
@@ -78,7 +78,7 @@ public class PlayerListener implements Listener{
 	
 	@EventHandler
 	public void onPlayerQuit(PlayerQuitEvent event){
-		PlayerManager.getInstance().removePlayer(PlayerManager.getInstance().getPlayer(event.getPlayer().getName()));
+		new PlayerManager().removePlayer(new PlayerManager().getPlayer(event.getPlayer().getName()));
 	}
 	
 	@EventHandler

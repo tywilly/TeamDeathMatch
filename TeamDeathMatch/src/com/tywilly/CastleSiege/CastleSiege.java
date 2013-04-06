@@ -1,11 +1,11 @@
-package com.tywilly.teamdeathmatch;
+package com.tywilly.CastleSiege;
 
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import com.tywilly.teamdeathmatch.player.PlayerListener;
+import com.tywilly.CastleSiege.player.PlayerListener;
 
-public class TeamDeathMatch extends JavaPlugin{
+public class CastleSiege extends JavaPlugin{
 	
 	PluginManager pm;
 	

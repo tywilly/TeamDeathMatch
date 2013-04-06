@@ -1,8 +1,8 @@
-package com.tywilly.teamdeathmatch.player;
+package com.tywilly.CastleSiege.player;
 
 import org.bukkit.entity.Player;
 
-import com.tywilly.teamdeathmatch.team.Team;
+import com.tywilly.CatsleSiege.team.Team;
 
 public class TeamPlayer{
 
